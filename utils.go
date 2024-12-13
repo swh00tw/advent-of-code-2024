@@ -1,5 +1,10 @@
 package aoc
 
+import (
+	"bufio"
+	"os"
+)
+
 type Set[T comparable] map[T]bool
 
 func (s Set[T]) Add(e T) {
@@ -16,4 +21,23 @@ func (s Set[T]) toArray() []T {
 		arr = append(arr, e)
 	}
 	return arr
+}
+
+func (s Set[T]) Extend(other Set[T]) {
+	for e := range other {
+		s.Add(e)
+	}
+}
+
+func loadInputLines(filename string) []string {
+	file, _ := os.Open("input.txt")
+	defer file.Close()
+
+	scanner := bufio.NewScanner(file)
+	lines := make([]string, 0)
+	for scanner.Scan() {
+		line := scanner.Text()
+		lines = append(lines, line)
+	}
+	return lines
 }
