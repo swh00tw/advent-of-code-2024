@@ -1,10 +1,8 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"github.com/swh00tw/aoc"
-	"os"
 	"strconv"
 )
 
@@ -13,13 +11,9 @@ func pos2Key(x, y int) string {
 }
 
 func loadInput() [][]int {
-	file, _ := os.Open("input.txt")
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
+	lines := aoc.LoadInputLines("input.txt")
 	matrix := [][]int{}
-	for scanner.Scan() {
-		line := scanner.Text()
+	for _, line := range lines {
 		row := []int{}
 		for _, b := range line {
 			v, _ := strconv.Atoi(string(b))
@@ -27,6 +21,7 @@ func loadInput() [][]int {
 		}
 		matrix = append(matrix, row)
 	}
+
 	return matrix
 }
 

@@ -29,7 +29,7 @@ func (s Set[T]) Extend(other Set[T]) {
 	}
 }
 
-func loadInputLines(filename string) []string {
+func LoadInputLines(filename string) []string {
 	file, _ := os.Open("input.txt")
 	defer file.Close()
 
