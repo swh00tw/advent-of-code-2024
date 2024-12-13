@@ -3,27 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/swh00tw/aoc"
 	"os"
 	"strconv"
 )
-
-type Set[T comparable] map[T]bool
-
-func (s Set[T]) Add(e T) {
-	s[e] = true
-}
-
-func (s Set[T]) Len() int {
-	return len(s)
-}
-
-func (s Set[T]) toArray() []T {
-	arr := make([]T, 0)
-	for e := range s {
-		arr = append(arr, e)
-	}
-	return arr
-}
 
 func pos2Key(x, y int) string {
 	return fmt.Sprintf("%d,%d", x, y)
@@ -50,7 +33,7 @@ func loadInput() [][]int {
 func calculateScore(matrix [][]int, x, y int) int {
 	m := len(matrix)
 	n := len(matrix[0])
-	ninePosition := Set[string]{}
+	ninePosition := aoc.Set[string]{}
 	deltas := [][]int{
 		{0, 1},
 		{1, 0},
@@ -109,7 +92,7 @@ func poss2Key(pos [][]int) string {
 func calculateRating(matrix [][]int, x, y int) int {
 	m := len(matrix)
 	n := len(matrix[0])
-	ninePaths := Set[string]{}
+	ninePaths := aoc.Set[string]{}
 	deltas := [][]int{
 		{0, 1},
 		{1, 0},
