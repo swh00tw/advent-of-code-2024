@@ -30,7 +30,7 @@ func (s Set[T]) Extend(other Set[T]) {
 }
 
 func LoadInputLines(filename string) []string {
-	file, _ := os.Open("input.txt")
+	file, _ := os.Open(filename)
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
