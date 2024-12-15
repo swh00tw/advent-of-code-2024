@@ -89,6 +89,7 @@ func part2(robots []*Robot) {
 			pointsSet.Add(key)
 		}
 		// check if some robots overlapped, if yes, skip
+		// ref: https://www.reddit.com/r/adventofcode/comments/1hdvhvu/comment/m243der/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 		if pointsSet.Len() < n {
 			continue
 		}
