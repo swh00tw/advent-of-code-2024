@@ -15,7 +15,7 @@ func (s Set[T]) Len() int {
 	return len(s)
 }
 
-func (s Set[T]) toArray() []T {
+func (s Set[T]) ToArray() []T {
 	arr := make([]T, 0)
 	for e := range s {
 		arr = append(arr, e)
