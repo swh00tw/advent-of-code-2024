@@ -15,6 +15,11 @@ func (s Set[T]) Len() int {
 	return len(s)
 }
 
+func (s Set[T]) Has(e T) bool {
+	_, ok := s[e]
+	return ok
+}
+
 func (s Set[T]) ToArray() []T {
 	arr := make([]T, 0)
 	for e := range s {
