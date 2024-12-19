@@ -28,6 +28,16 @@ func (s Set[T]) ToArray() []T {
 	return arr
 }
 
+func (s Set[T]) Remove(e T) {
+	delete(s, e)
+}
+
+func (s Set[T]) FromArray(arr []T) {
+	for _, e := range arr {
+		s.Add(e)
+	}
+}
+
 func (s Set[T]) Extend(other Set[T]) {
 	for e := range other {
 		s.Add(e)
