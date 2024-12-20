@@ -84,3 +84,12 @@ func IntPow(n, m int) int {
 	}
 	return result
 }
+
+func Copy2DArray[T any](arr [][]T) [][]T {
+	newArr := make([][]T, len(arr))
+	for i, row := range arr {
+		newArr[i] = make([]T, len(row))
+		copy(newArr[i], row)
+	}
+	return newArr
+}
