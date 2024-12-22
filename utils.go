@@ -93,3 +93,11 @@ func Copy2DArray[T any](arr [][]T) [][]T {
 	}
 	return newArr
 }
+
+func Flatten2DArray[T any](arr [][]T) []T {
+	flatten := make([]T, 0)
+	for _, row := range arr {
+		flatten = append(flatten, row...)
+	}
+	return flatten
+}
